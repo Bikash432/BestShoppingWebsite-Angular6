@@ -1,0 +1,47 @@
+<div class="container">
+      <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)" style="background-color:beige;">
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <h2>Login</h2>
+            <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+            <div class="form-group">
+              <div class="col" style="text-align:left">
+                <label>Email Id</label>
+              </div>
+              <div class="col; input-group">
+                <input type="email" name="email" #emailRef="ngModel" class="form-control" ngModel required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+              </div>
+              <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)" style="text-align:left; padding-top:5px; color:red;">
+                <div [hidden]="!emailRef.errors.required">
+                  <p>&nbsp;Email id is mandatory</p>
+                </div>
+                <div [hidden]="!emailRef.errors.pattern">
+                  <p>&nbsp;Email id is not entered in proper format</p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col" style="text-align:left">
+                <label>Password</label>
+              </div>
+              <div class="col; input-group">
+                <input type="password" name="password" #passwordRef="ngModel" class="form-control" ngModel required>
+              </div>
+              <div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)" style="text-align:left; padding-top:5px; color:red;">
+                <div [hidden]="!passwordRef.errors.required">
+                  <p>&nbsp;Password is mandatory</p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="text-align:left">
+              <button type="submit" [disabled]="!loginForm.form.valid" class="btn">Login</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+      </form>
+    </div>
+    

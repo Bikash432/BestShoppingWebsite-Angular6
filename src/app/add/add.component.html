@@ -1,0 +1,70 @@
+<div class="myContent">
+      <div class="container">
+            <form #updateCartForm="ngForm" (ngSubmit)="PosttheDetails(updateCartForm.value)">
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+              <h4 style="text-align:center">Update Post</h4>
+              <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+              <div class="form-group">
+                <div class="col" style="text-align:left">
+                  <label>User Id</label>
+                </div>
+                <div class="col; input-group">
+                  <input type="text" name="userId"  [ngModel]="userId"  class="form-control qkinput" readonly>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col" style="text-align:left">
+                  <label>Id</label>
+                </div>
+                <div class="col; input-group">
+                  <input type="number" name="id" [ngModel]="id"  class="form-control qkinput" readonly>
+                </div>
+              </div>
+    
+              <div class="form-group">
+                <div class="col" style="text-align:left">
+                  <label>Title</label>
+                </div>
+                <div class="col; input-group">
+                  <input type="string" name="title" [ngModel]="title"  #title="ngModel" class="form-control qkinput" min="1" max="" required ngModel>
+                  <div *ngIf="title.errors && (title.dirty || title.touched)" class="text-danger-validation">
+                    <div [hidden]="!title.errors.required">
+                      <br />
+                      Please enter the title.
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+                <div class="form-group">
+                    <div class="col" style="text-align:left">
+                      <label>Body</label>
+                    </div>
+                    <div class="col; input-group">
+                      <input type="string" name="body" [ngModel]="body"  #body="ngModel" class="form-control qkinput" min="1" max="" required ngModel>
+                      <div *ngIf="body.errors && (body.dirty || body.touched)" class="text-danger-validation">
+                        <div [hidden]="!body.errors.required">
+                          <br />
+                          Please enter the body.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+        
+              <div class="form-group" style="text-align:left">
+                <button type="submit" [disabled]="!updateCartForm.form.valid" class="btn">Post</button> &nbsp;&nbsp;
+                <a routerLink="/home">Cancel</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    

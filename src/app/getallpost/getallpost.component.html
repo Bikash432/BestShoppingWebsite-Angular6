@@ -1,0 +1,27 @@
+  <div style="text-align:center;margin: 0px; ">
+      <div class="table-responsive">
+        <table class="table" style="border:5px solid rgba(220,230,242,1);margin-top: 0px;" *ngIf="products">
+          <tr style="background-color:rgba(220,230,242,1); font-size:12pt">
+            <th>User Id</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+             <th>Add</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+          <tr *ngFor="let product of products" style="background-color:white">
+            <td>{{product.userId }}</td>
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.body}}</td>
+    <td style="text-align:center"><button title="Update Post"
+        (click)="addPost(product)" class="btn">Add</button></td>
+            <td style="text-align:center"><button title="Update Post"
+                 (click)="updatePost(product)" class="btn">Update</button></td>
+                 <td style="text-align:center"><button title="Delete Post"
+                (click)="deletePost(product.id)" class="btn">Delete</button></td></tr>
+        </table>
+      </div>
+    </div>
+ 
